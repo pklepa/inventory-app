@@ -1,6 +1,12 @@
 extends layout
 
 block content
+  ul.action-btns-container
+    li.action-btn.category.selected
+      a(href="/inventory/games") All Games
+    li.action-btn.search-btn
+      input(type='text' name='search', placeholder='Search for a category')
+
   ul.category-container
     li.category.selected
       a(href="/inventory/games") All Games
@@ -10,4 +16,15 @@ block content
       a(href="/inventory/game/123/update") Update Game
     li.category
       a(href="/inventory/game/5fe0ba94b8373b51d16b317c") Specific Game Page
-  
+    li.category
+      a(href="/inventory/game/5fe0ba94b8373b51d16b317c") Specific Game Page
+    li.category
+      a(href="/inventory/game/5fe0ba94b8373b51d16b317c") Specific Game Page
+    li.category
+      a(href="/inventory/game/5fe0ba94b8373b51d16b317c") Specific Game Page
+    li.category
+      a(href="/inventory/game/5fe0ba94b8373b51d16b317c") Specific Game Page
+    li.category
+      a(href="/inventory/game/5fe0ba94b8373b51d16b317c") Specific Game Page
+    li.category
+      a(href="/inventory/game/5fe0ba94b8373b51d16b317c") Specific Game Page

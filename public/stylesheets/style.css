@@ -81,13 +81,14 @@ nav {
     nav a:hover {
       letter-spacing: 10px; }
 
-.category-container {
+.action-btns-container {
   display: flex;
-  flex-wrap: wrap; }
-  .category-container > .category:first-child {
-    margin: 0 20px 0 0;
+  justify-content: center;
+  margin-bottom: 12px; }
+  .action-btns-container > .category:first-child {
+    margin: 0 20px 0;
     position: relative; }
-    .category-container > .category:first-child::after {
+    .action-btns-container > .category:first-child::after {
       content: "";
       position: absolute;
       top: 0;
@@ -95,12 +96,29 @@ nav {
       width: 1px;
       height: 100%;
       background-color: #b2b2b2; }
+  .action-btns-container input {
+    background: none;
+    color: #ff4646;
+    margin: 0 0 0 8px;
+    padding: 4px 8px;
+    border-radius: 10px;
+    border: 2px solid #ff8585;
+    outline: none; }
+    .action-btns-container input::placeholder {
+      color: #ff8585;
+      opacity: .5; }
+
+.category-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; }
 
 .category {
   padding: 4px 8px;
   border-radius: 10px;
   border: 2px solid #ff8585;
-  margin: 0 6px;
+  margin: 0 6px 6px;
   color: #ff4646;
   text-transform: lowercase; }
   .category.selected {

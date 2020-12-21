@@ -19,12 +19,15 @@ nav
       letter-spacing: 10px
 
 
-.category-container
+.action-btns-container
   display: flex
-  flex-wrap: wrap
+  justify-content: center
+  // align-items: center
+  margin-bottom: 12px
 
+  
   & > .category:first-child
-    margin: 0 20px 0 0
+    margin: 0 20px 0
     position: relative
 
     &::after
@@ -36,11 +39,31 @@ nav
       height: 100%
       background-color: $light
 
+  input 
+    background: none
+    color: $primary
+    margin: 0 0 0 8px
+    padding: 4px 8px
+    border-radius: 10px
+    border: 2px solid $secondary
+    outline: none
+
+    &::placeholder
+      color: $secondary
+      opacity: .5
+
+
+.category-container
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  align-items: center
+
 .category
   padding: 4px 8px
   border-radius: 10px
   border: 2px solid $secondary
-  margin: 0 6px
+  margin: 0 6px 6px
 
   color: $primary
   text-transform: lowercase
