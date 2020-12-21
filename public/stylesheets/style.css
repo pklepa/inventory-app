@@ -126,4 +126,39 @@ nav {
     background-color: #ff4646;
     color: #ffe6e6; }
 
+.cards-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+  margin-top: 20px; }
+  .cards-container .card {
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+    padding: 15px 20px;
+    margin: 0 20px 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; }
+    .cards-container .card img {
+      width: 100%;
+      border-radius: 4px; }
+    .cards-container .card h1 {
+      color: #ff4646;
+      font-size: 16px;
+      margin: 5px 0; }
+    .cards-container .card .tags {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%; }
+      .cards-container .card .tags .tag {
+        font-family: monospace;
+        font-size: 10px;
+        color: #222222;
+        background-color: #d3d3d3;
+        border-radius: 10px;
+        padding: 3px 6px;
+        margin-bottom: 3px;
+        margin-right: 3px; }
+
 /*# sourceMappingURL=style.css.map */
