@@ -1,0 +1,51 @@
+@import ./global
+
+nav
+  display: flex
+  align-items: center
+  justify-content: center
+  padding: 15px 50px
+  width: 100%
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px
+
+  font-size: 22px
+  letter-spacing: 4px
+  
+  a
+    +text-gradient(0deg, $primary, $tertiary)
+    transition: letter-spacing .4s
+
+    &:hover
+      letter-spacing: 10px
+
+
+.category-container
+  display: flex
+  flex-wrap: wrap
+
+  & > .category:first-child
+    margin: 0 20px 0 0
+    position: relative
+
+    &::after
+      content: ""
+      position: absolute
+      top: 0
+      right: -16px
+      width: 1px
+      height: 100%
+      background-color: $light
+
+.category
+  padding: 4px 8px
+  border-radius: 10px
+  border: 2px solid $secondary
+  margin: 0 6px
+
+  color: $primary
+  text-transform: lowercase
+
+  &.selected
+    border-color: $primary
+    background-color: $primary
+    color: $white

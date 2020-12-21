@@ -1,18 +1,13 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  ul
-    li
-      a(href="/inventory/game/123") Game 123
-    li
+  ul.category-container
+    li.category.selected
       a(href="/inventory/games") All Games
-    li
-      a(href="/") Home
-    li
+    li.category
       a(href="/inventory/game/create") Create Game
-    li
+    li.category
       a(href="/inventory/game/123/update") Update Game
-    li
-      a(href="/inventory/game/123") Specific Game Page
+    li.category
+      a(href="/inventory/game/5fe0ba94b8373b51d16b317c") Specific Game Page
+  
