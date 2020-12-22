@@ -7,13 +7,15 @@ exports.game_list = function (req, res, next) {
   async.parallel(
     {
       games: function (callback) {
-        Game.find()
+        Game.find({})
           .sort([["name", "ascending"]])
           .populate("categories")
           .exec(callback);
       },
       categories: function (callback) {
-        Category.find(callback);
+        Category.find()
+          .sort([["name", "asc"]])
+          .exec(callback);
       },
     },
     function (err, results) {
@@ -21,9 +23,17 @@ exports.game_list = function (req, res, next) {
         return next(err);
       }
       //Successful, so render
+      const sortedGames = results.games.map((game) => {
+        const sortedArr = game.categories.sort((a, b) => {
+          return a.name > b.name ? 1 : -1;
+        });
+
+        return { ...game._doc, categories: sortedArr };
+      });
+
       res.render("index", {
         title: "Games",
-        game_list: results.games,
+        game_list: sortedGames,
         category_list: results.categories,
       });
     }
