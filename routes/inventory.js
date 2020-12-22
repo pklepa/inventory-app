@@ -4,14 +4,9 @@ var router = express.Router();
 const gameController = require("../controllers/gameController");
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
-});
+router.get("/", gameController.game_list);
 
 /// GAME ROUTES -----------------------
-
-// GET games view
-router.get("/games", gameController.game_list);
 
 // GET create game view
 router.get("/game/create", gameController.game_create_get);

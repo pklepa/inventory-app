@@ -30,6 +30,18 @@ block content
       a(href="/inventory/game/5fe0ba94b8373b51d16b317c") Specific Game Page
 
   div.cards-container
+      each game in game_list
+        div.card
+          a(href=game.url)
+            div.image(style="background-image: url('"+ game.imgUrl + "')")
+  
+          h1 #{game.name}
+          - console.log(game)
+          div.tags
+            a.tag(href="/inventory/category/123") 3d
+            a.tag(href="/inventory/category/123") platformer
+            a.tag(href="/inventory/category/123") single-player
+
       div.card
         a(href="/inventory/game/5fe0ba94b8373b51d16b317c")
           div.image(style="background-image: url('https://images-na.ssl-images-amazon.com/images/I/91JZdTYcjFL._AC_SL1500_.jpg')")

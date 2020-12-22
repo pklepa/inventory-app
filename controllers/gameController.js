@@ -1,6 +1,20 @@
+const async = require("async");
+const Game = require("../models/game");
+
 // Display list of all games.
-exports.game_list = function (req, res) {
-  res.send("NOT IMPLEMENTED: Game list");
+exports.game_list = function (req, res, next) {
+  Game.find()
+    .sort([["name", "ascending"]])
+    .exec(function (err, list_games) {
+      if (err) {
+        return next(err);
+      }
+      //Successful, so render
+      res.render("index", {
+        title: "Games",
+        game_list: list_games,
+      });
+    });
 };
 
 // Display detail page for a specific game.
