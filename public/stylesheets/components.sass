@@ -85,7 +85,8 @@ nav
   .card
     display: flex
     flex-direction: column
-    max-width: 200px
+    width: 200px
+    // height: 30px
 
     padding: 15px 20px
     margin: 0 20px 20px
@@ -94,16 +95,28 @@ nav
     img
       width: 100%
       border-radius: 4px
+    
+    .image
+      width: 100%
+      height: 250px
+      background-color: $dark
+      background-size: cover
+      background-position: center
 
     h1
       color: $primary
       font-size: 16px
       margin: 5px 0
+      text-align: center
     
     .tags
       display: flex
       flex-wrap: wrap
+      align-items: flex-start
+      align-content: flex-start
+      justify-content: center
       width: 100%
+      min-height: 60px
 
       .tag
         font-family: monospace
