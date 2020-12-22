@@ -14,20 +14,10 @@ block content
       a(href="/inventory/game/create") Create Game
     li.category
       a(href="/inventory/game/123/update") Update Game
-    li.category
-      a(href="/inventory/game/5fe0ba94b8373b51d16b317c") Specific Game Page
-    li.category
-      a(href="/inventory/game/5fe0ba94b8373b51d16b317c") Specific Game Page
-    li.category
-      a(href="/inventory/game/5fe0ba94b8373b51d16b317c") Specific Game Page
-    li.category
-      a(href="/inventory/game/5fe0ba94b8373b51d16b317c") Specific Game Page
-    li.category
-      a(href="/inventory/game/5fe0ba94b8373b51d16b317c") Specific Game Page
-    li.category
-      a(href="/inventory/game/5fe0ba94b8373b51d16b317c") Specific Game Page
-    li.category
-      a(href="/inventory/game/5fe0ba94b8373b51d16b317c") Specific Game Page
+    
+    each category in category_list
+      li.category
+        a(href=category.url) #{category.name}
 
   div.cards-container
       each game in game_list
@@ -35,56 +25,8 @@ block content
           a(href=game.url)
             div.image(style="background-image: url('"+ game.imgUrl + "')")
   
-          h1 #{game.name}
-          - console.log(game)
+          a(href=game.url)
+            h1 #{game.name}
           div.tags
-            a.tag(href="/inventory/category/123") 3d
-            a.tag(href="/inventory/category/123") platformer
-            a.tag(href="/inventory/category/123") single-player
-
-      div.card
-        a(href="/inventory/game/5fe0ba94b8373b51d16b317c")
-          div.image(style="background-image: url('https://images-na.ssl-images-amazon.com/images/I/91JZdTYcjFL._AC_SL1500_.jpg')")
-
-        h1 Game title
-        div.tags
-          a.tag(href="/inventory/category/123") 3d
-          a.tag(href="/inventory/category/123") platformer
-          a.tag(href="/inventory/category/123") single-player
-      
-      div.card
-        a(href="/inventory/game/5fe0ba94b8373b51d16b317c")
-          div.image(style="background-image: url('https://images-na.ssl-images-amazon.com/images/I/91JZdTYcjFL._AC_SL1500_.jpg')")
-
-        h1 Game title
-        div.tags
-          a.tag(href="/inventory/category/123") 3d
-          a.tag(href="/inventory/category/123") platformer
-          a.tag(href="/inventory/category/123") single-player
-          
-      div.card
-        a(href="/inventory/game/5fe0ba94b8373b51d16b317c")
-          div.image(style="background-image: url('https://static-cdn.jtvnw.net/ttv-boxart/Rocket%20League.jpg')")
-
-        h1 Game title
-        div.tags
-          a.tag(href="/inventory/category/123") sports
-      
-      div.card
-        a(href="/inventory/game/5fe0ba94b8373b51d16b317c")
-          div.image(style="background-image: url('https://images-na.ssl-images-amazon.com/images/I/91JZdTYcjFL._AC_SL1500_.jpg')")
-
-        h1 Game title
-        div.tags
-          a.tag(href="/inventory/category/123") 3d
-          a.tag(href="/inventory/category/123") platformer
-          a.tag(href="/inventory/category/123") single-player
-        
-      div.card
-        a(href="/inventory/game/5fe0ba94b8373b51d16b317c")
-          div.image(style="background-image: url('https://static-cdn.jtvnw.net/ttv-boxart/Rocket%20League.jpg')")
-
-        h1 Game title
-        div.tags
-          a.tag(href="/inventory/category/123") sports
-
+            each category in game.categories
+              a.tag(href=category.url) #{category.name}

@@ -1,20 +1,33 @@
 const async = require("async");
 const Game = require("../models/game");
+const Category = require("../models/category");
 
 // Display list of all games.
 exports.game_list = function (req, res, next) {
-  Game.find()
-    .sort([["name", "ascending"]])
-    .exec(function (err, list_games) {
+  async.parallel(
+    {
+      games: function (callback) {
+        Game.find()
+          .sort([["name", "ascending"]])
+          .populate("categories")
+          .exec(callback);
+      },
+      categories: function (callback) {
+        Category.find(callback);
+      },
+    },
+    function (err, results) {
       if (err) {
         return next(err);
       }
       //Successful, so render
       res.render("index", {
         title: "Games",
-        game_list: list_games,
+        game_list: results.games,
+        category_list: results.categories,
       });
-    });
+    }
+  );
 };
 
 // Display detail page for a specific game.

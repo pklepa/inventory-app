@@ -29,7 +29,7 @@ var categories = [];
 function gameCreate(
   game_name,
   game_description,
-  game_category,
+  game_categories,
   game_platform,
   price,
   imgUrl,
@@ -38,8 +38,8 @@ function gameCreate(
   gamedetail = {
     name: game_name,
     description: game_description,
-    game_category: game_category,
-    game_platform: game_platform,
+    categories: game_categories,
+    platform: game_platform,
     imgUrl: imgUrl || "https://dummyimage.com/250/333333/e3e3e3",
     price: price || "Unknown",
   };

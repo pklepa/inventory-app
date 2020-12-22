@@ -6,7 +6,9 @@ const Schema = mongoose.Schema;
 const GameSchema = new Schema({
   name: { type: String, required: true, maxlength: 100 },
   description: { type: String, required: true, maxlength: 800 },
-  category: [{ type: Schema.Types.ObjectId, required: true, ref: "Category" }],
+  categories: [
+    { type: Schema.Types.ObjectId, required: true, ref: "Category" },
+  ],
   platform: [
     {
       type: String,
@@ -21,7 +23,7 @@ const GameSchema = new Schema({
 
 // Virtual for game's URL
 GameSchema.virtual("url").get(function () {
-  return "/game/" + this._id;
+  return "/inventory/game/" + this._id;
 });
 
 //Export model
