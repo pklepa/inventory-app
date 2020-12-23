@@ -31,7 +31,7 @@
 	font-weight: bold 
 
 label, label:before, label:after 
-	position: absolute 
+	position: fixed 
 	bottom: 8% 
 	right: 8% 
 	width: 60px 
@@ -50,9 +50,11 @@ label
 		color: white 
 		font-size: 38px!important 
 		cursor: pointer 
+		user-select: none
 	#close 
 		opacity: 0 
 		cursor: pointer 
+		user-select: none
 
 #menu-toggle 
 	&:not(:checked) 
@@ -63,7 +65,7 @@ label
 			& + #menu 
 				li 
 					opacity: 0 
-					position: absolute 
+					position: fixed 
 					top: 0 
 					left: 0
 					pointer-events: none 
@@ -73,8 +75,8 @@ label
 
 	&:checked
 		& + label 
-			position: absolute 
-			bottom: 14% 
+			position: fixed 
+			bottom: 10% 
 			right: 6% 
 			width: 220px 
 			height: 130px 
@@ -101,10 +103,10 @@ label
 					filter: brightness(.8)
 
 			& + #menu 
-				position: absolute 
+				position: fixed 
 				margin: 0 
 				padding: 0 
-				bottom: 17% 
+				bottom: 13% 
 				right: calc(6% + 38px) 
 				width: 170px 
 				height: 100px 
@@ -126,7 +128,7 @@ label
 						margin-right: 6px
 
 #menu 
-	position: absolute 
+	position: fixed 
 	bottom: 22% 
 	right: 8% 
 	width: 80px 
