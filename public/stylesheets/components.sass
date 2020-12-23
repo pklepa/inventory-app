@@ -126,7 +126,9 @@ nav
   font-family: monospace
   text-transform: lowercase
 
-  &.selected
+  transition: .2s
+
+  &.selected, &:hover
     border-color: $primary
     background-color: $primary
     color: $white
@@ -191,3 +193,8 @@ nav
         padding: 3px 6px
         margin-bottom: 3px
         margin-right: 3px
+        transition: .2s
+
+        &:hover
+          background-color: $primary
+          color: $white
