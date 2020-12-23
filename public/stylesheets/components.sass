@@ -19,7 +19,6 @@ nav
     font-family: 'Press Start 2P', monospace
     font-size: 22px
     letter-spacing: 4px
-    // +text-gradient(0deg, $primary, $tertiary)
     color: $primary
     text-shadow: 3px 3px $lighterer
 
@@ -75,7 +74,7 @@ nav
     top: 0
     height: 100%
     width: 40px
-    background-image: linear-gradient(to right, $lighter, transparent)
+    background-image: linear-gradient(to right, $white, transparent)
     z-index: 10
 
   &::after
@@ -85,8 +84,7 @@ nav
     top: 0
     height: 100%
     width: 50px
-    background-image: linear-gradient(to left, $lighter, transparent)
-    // background-color: salmon
+    background-image: linear-gradient(to left, $white, transparent)
     z-index: 10
 
 
@@ -141,7 +139,7 @@ nav
   justify-content: center
   flex-wrap: wrap
   max-width: 100%
-  margin-top: 20px
+  margin-top: 40px
 
   .card
     display: flex
@@ -149,9 +147,14 @@ nav
     width: 200px
     // height: 30px
 
+    background-color: $white
     padding: 15px 20px
     margin: 0 20px 20px
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px
+    transition: transform .4s
+
+    &:hover
+      transform: scale(1.05)
 
     img
       width: 100%
@@ -167,7 +170,7 @@ nav
     h1
       color: $primary
       font-size: 16px
-      margin: 5px 0
+      margin: 8px 0
       text-align: center
     
     .tags
@@ -183,7 +186,7 @@ nav
         font-family: monospace
         font-size: 10px
         color: $dark
-        background-color: $lighterer
+        background-color: $lighter
         border-radius: 10px
         padding: 3px 6px
         margin-bottom: 3px
