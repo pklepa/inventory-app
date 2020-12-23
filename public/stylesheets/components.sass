@@ -13,6 +13,16 @@ nav
   background-size: 1000px
   background-position: 50% 89%
   background-image: url("../images/mario_bg2.png")
+
+  @media screen and ( max-width: 1000px )
+    background-size: 700px
+
+  @media screen and ( max-width: 700px )
+    background-size: 500px
+    
+  @media screen and ( max-width: 500px )
+    background-size: 300px
+    
   
   a
     transition: letter-spacing .4s
@@ -66,6 +76,9 @@ nav
 
 .category-container
   position: relative
+  flex-shrink: 0
+  width: 100%
+    
 
   &::before
     position: absolute
@@ -95,6 +108,7 @@ nav
   overflow-x: scroll
   overflow-y: hidden
   scroll-behavior: smooth
+  flex-shrink: 0
   padding: 0 40px 5px
 
   &::-webkit-scrollbar 
@@ -147,7 +161,6 @@ nav
     display: flex
     flex-direction: column
     width: 200px
-    // height: 30px
 
     background-color: $white
     padding: 15px 20px

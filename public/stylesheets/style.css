@@ -56,7 +56,15 @@ body {
 
 main {
   padding: 30px 0 50px;
-  max-width: 800px; }
+  max-width: 800px;
+  display: flex;
+  flex-direction: column; }
+  @media screen and (max-width: 900px) {
+    main {
+      max-width: 500px; } }
+  @media screen and (max-width: 520px) {
+    main {
+      max-width: 100%; } }
 
 body {
   background-color: #f6f7fd;
@@ -73,7 +81,15 @@ body {
 
 main {
   padding: 30px 0 50px;
-  max-width: 800px; }
+  max-width: 800px;
+  display: flex;
+  flex-direction: column; }
+  @media screen and (max-width: 900px) {
+    main {
+      max-width: 500px; } }
+  @media screen and (max-width: 520px) {
+    main {
+      max-width: 100%; } }
 
 nav {
   display: flex;
@@ -87,6 +103,15 @@ nav {
   background-size: 1000px;
   background-position: 50% 89%;
   background-image: url("../images/mario_bg2.png"); }
+  @media screen and (max-width: 1000px) {
+    nav {
+      background-size: 700px; } }
+  @media screen and (max-width: 700px) {
+    nav {
+      background-size: 500px; } }
+  @media screen and (max-width: 500px) {
+    nav {
+      background-size: 300px; } }
   nav a {
     transition: letter-spacing .4s;
     font-family: 'Press Start 2P', monospace;
@@ -129,7 +154,9 @@ nav {
       opacity: .5; }
 
 .category-container {
-  position: relative; }
+  position: relative;
+  flex-shrink: 0;
+  width: 100%; }
   .category-container::before {
     position: absolute;
     content: "";
@@ -155,6 +182,7 @@ nav {
   overflow-x: scroll;
   overflow-y: hidden;
   scroll-behavior: smooth;
+  flex-shrink: 0;
   padding: 0 40px 5px; }
   .category-scroller::-webkit-scrollbar {
     height: 6px; }
