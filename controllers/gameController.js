@@ -32,8 +32,8 @@ exports.game_list = function (req, res, next) {
       });
 
       res.render("index", {
-        title: "Games",
-        game_list: sortedGames,
+        title: "Gameshop - All games",
+        game_list: results.games,
         category_list: results.categories,
       });
     }

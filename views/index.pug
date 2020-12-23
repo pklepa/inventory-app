@@ -20,13 +20,13 @@ block content
         a(href=category.url) #{category.name}
 
   div.cards-container
-      each game in game_list
-        div.card
-          a(href=game.url)
-            div.image(style="background-image: url('"+ game.imgUrl + "')")
+    each game in game_list
+      div.card
+        a(href=game.url)
+          div.image(style="background-image: url('"+ game.imgUrl + "')")
   
-          a(href=game.url)
-            h1 #{game.name}
-          div.tags
-            each category in game.categories
-              a.tag(href=category.url) #{category.name}
+        a(href=game.url)
+          h1 #{game.name}
+        div.tags
+          each category in game.categories
+            a.tag(href=category.url) #{category.name}
