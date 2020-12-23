@@ -31,3 +31,17 @@ block content
         div.tags
           each category in game.categories
             a.tag(href=category.url) #{category.name}
+
+  input#menu-toggle(type='checkbox' name="menu-toggle")
+  label(for='menu-toggle')
+    i#open.material-icons add
+    i#close.material-icons close
+  ul#menu
+    li
+      a.floating-btn-link(href='#')
+        i.material-icons videogame_asset
+        | New Game
+    li
+      a.floating-btn-link(href='#')
+        i.material-icons category
+        | New Category
