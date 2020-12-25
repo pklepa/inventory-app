@@ -1,21 +1,11 @@
 extends layout
 
 block content
-  //- ul.action-btns-container
-  //-   li.action-btn.category.selected
-  //-     a(href="/inventory") All Games
-  //-   li.action-btn.search-btn
-  //-     input(type='text' name='search', placeholder='Search for a category')
 
   div.category-container
     ul.category-scroller
       li.category.selected
         a(href="/inventory") All Games
-      li.category
-        a(href="/inventory/game/create") Create Game
-      li.category
-        a(href="/inventory/game/123/update") Update Game
-
       each category in category_list
         li.category
           a(href=category.url) #{category.name}
