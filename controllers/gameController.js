@@ -64,7 +64,9 @@ exports.game_detail = function (req, res, next) {
 
 // Display Game create form on GET.
 exports.game_create_get = function (req, res) {
-  res.send("NOT IMPLEMENTED: Game create form GET");
+  res.render("game_form", {
+    title: "New Game :: gameshop",
+  });
 };
 
 // Display Game create form on POST.

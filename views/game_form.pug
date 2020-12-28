@@ -3,5 +3,20 @@ extends layout
 block content
   .content-container
     form(action="/inventory/game/create" method="POST")
-      h1 Create a game
-      button(type="submit")
+      h1 Create a new game
+
+      .form-input
+        label(for="name") Name
+        input(type="text", name="name", required=true, placeholder="Runescape, World of Warcraft, Super Mario Odyssey, etc...", minlength=1, maxlength=40 )
+
+      .form-input
+        label(for="description") Description
+        input(type="text", name="description", required=true, placeholder="Brief description of the game", minlength=10, maxlength=800 )
+        
+      if errors  
+        ul.error-box
+          for error in errors
+            li.error-msg #{error.msg}
+
+      button.form-btn-submit(type="submit") Submit
+      a.form-btn-cancel(href="/inventory") Cancel

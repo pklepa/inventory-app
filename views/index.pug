@@ -6,6 +6,9 @@ block content
       ul.category-scroller
         li.category.selected
           a(href="/inventory") All Games
+          
+        li.category-separator
+
         each category in category_list
           li.category
             a(href=category.url) #{category.name}
