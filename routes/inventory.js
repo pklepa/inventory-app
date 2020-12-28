@@ -36,9 +36,7 @@ router.get("/game/:id", gameController.game_detail);
 router.get("/category/create", categoryController.category_create_get);
 
 // POST create category view
-router.post("/category/create", function (req, res, next) {
-  res.send("Not implemented: POST create category view");
-});
+router.post("/category/create", categoryController.category_create_post);
 
 // GET delete category view
 router.get("/category/:id/delete", function (req, res, next) {

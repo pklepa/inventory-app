@@ -6,13 +6,13 @@ block content
       h1 Create a new category
 
       .form-input
-        label(for="category_name") Name
-        input(type="text", name="category_name", required=true, placeholder="farming, shooter, platform...", minlength=2, maxlength=18, pattern=/^(\w)+(-*(\w)+)+/ )
+        label(for="name") Name
+        input(type="text", name="name", required=true, placeholder="farming, shooter, platform...", minlength=2, maxlength=18, pattern=/^(\w)+(-*(\w)+)+/ )
 
-      ul.error-box
-        li.error-msg Categories names must be between 2 and 18 characters long.
-        li.error-msg Please enter only unaccented alphabetical letters, a–z.
-        li.error-msg There's already a category with that name.
+      if errors  
+        ul.error-box
+          for error in errors
+            li.error-msg #{error.msg}
 
       button.form-btn-submit(type="submit") Submit
       a.form-btn-cancel(href="/inventory") Cancel

@@ -1,4 +1,6 @@
 const async = require("async");
+const { body, validationResult } = require("express-validator");
+
 const Game = require("../models/game");
 const Category = require("../models/category");
 
@@ -53,9 +55,63 @@ exports.category_create_get = function (req, res) {
 };
 
 // Display Category create form on POST.
-exports.category_create_post = function (req, res) {
-  res.send("NOT IMPLEMENTED: Category create form POST");
-};
+exports.category_create_post = [
+  // Validate and santise the name field.
+  body("name")
+    .trim()
+    .isLength({ min: 2 })
+    .escape()
+    .withMessage("Category name required")
+    .isLowercase()
+    .withMessage("Must be all lowercase")
+    .matches(/^(\w)+(-*(\w)+)+/)
+    .withMessage(
+      "Please enter only unaccented alphabetical letters, a–z. Separation may be done with dashes - or underscores _"
+    ),
+
+  // Process request after validation and sanitization.
+  (req, res, next) => {
+    // Extract the validation errors from a request.
+    const errors = validationResult(req);
+
+    // Create a category object with escaped and trimmed data.
+    var category = new Category({ name: req.body.name });
+
+    if (!errors.isEmpty()) {
+      // There are errors. Render the form again with sanitized values/error messages.
+      res.render("category_form", {
+        title: "Create Category :: gameshop",
+        category: category,
+        errors: errors.array(),
+      });
+      return;
+    } else {
+      // Data from form is valid.
+      // Check if Category with same name already exists.
+      Category.findOne({ name: req.body.name }).exec(function (
+        err,
+        found_category
+      ) {
+        if (err) {
+          return next(err);
+        }
+
+        if (found_category) {
+          // category exists, redirect to its detail page.
+          res.redirect(found_category.url);
+        } else {
+          category.save(function (err) {
+            if (err) {
+              return next(err);
+            }
+            // category saved. Redirect to category detail page.
+            res.redirect(category.url);
+          });
+        }
+      });
+    }
+  },
+];
 
 // Display Category delete form on GET.
 exports.category_delete_get = function (req, res) {
