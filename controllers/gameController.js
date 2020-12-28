@@ -63,10 +63,18 @@ exports.game_detail = function (req, res, next) {
 };
 
 // Display Game create form on GET.
-exports.game_create_get = function (req, res) {
-  res.render("game_form", {
-    title: "New Game :: gameshop",
-  });
+exports.game_create_get = function (req, res, next) {
+  Category.find()
+    .sort([["name", "asc"]])
+    .exec(function (err, category_list) {
+      if (err) return next(err);
+
+      // Successful, so render
+      res.render("game_form", {
+        title: "New Game :: gameshop",
+        category_list: category_list,
+      });
+    });
 };
 
 // Display Game create form on POST.

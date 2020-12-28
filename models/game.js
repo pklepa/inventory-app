@@ -12,7 +12,6 @@ const GameSchema = new Schema({
   platform: [
     {
       type: String,
-      required: true,
       enum: ["PC", "Console", "Mobile", "Other"],
       default: "PC",
     },

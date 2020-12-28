@@ -11,8 +11,21 @@ block content
 
       .form-input
         label(for="description") Description
-        input(type="text", name="description", required=true, placeholder="Brief description of the game", minlength=10, maxlength=800 )
-        
+        textarea(type="text", name="description", required=true, placeholder="Brief description of the game", minlength=10, maxlength=800 )
+
+      h2 Categories
+        | 
+        em (select at least 1)
+      div.category-container
+        ul.category-scroller
+          each category in category_list
+            li.category
+              a(href=category.url) #{category.name}
+      
+      .form-input
+        label(for="imgUrl") Image URL
+        input(type="text", name="imgUrl", required=true, placeholder="https://upload.wikimedia.org/wikipedia/en/thumb/f/f7/RickRoll.png/250px-RickRoll.png")
+
       if errors  
         ul.error-box
           for error in errors
