@@ -65,9 +65,4 @@ router.post("/category/:id/update", function (req, res, next) {
 // GET category view
 router.get("/category/:id", categoryController.category_game_list);
 
-// GET categories view
-router.get("/categories", function (req, res, next) {
-  res.send("Not implemented: GET all categories view");
-});
-
 module.exports = router;
