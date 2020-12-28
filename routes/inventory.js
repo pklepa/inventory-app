@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 
 const gameController = require("../controllers/gameController");
+const categoryController = require("../controllers/categoryController");
 
 /* GET home page. */
 router.get("/", gameController.game_list);
@@ -62,9 +63,7 @@ router.post("/category/:id/update", function (req, res, next) {
 });
 
 // GET category view
-router.get("/category/:id", function (req, res, next) {
-  res.send("Not implemented: GET category view");
-});
+router.get("/category/:id", categoryController.category_game_list);
 
 // GET categories view
 router.get("/categories", function (req, res, next) {
