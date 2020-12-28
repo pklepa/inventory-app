@@ -1,0 +1,15 @@
+extends layout
+
+block content
+
+  .game-container
+    div.image(style="background-image: url('" + game.imgUrl + "')")
+      img(src=game.imgUrl, alt="Game")
+
+    .game-details
+      h1 #{game.name}
+      div.tags
+        each category in game.categories
+          a.tag(href=category.url) #{category.name}
+        
+      p #{game.description}

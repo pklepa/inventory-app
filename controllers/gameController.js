@@ -23,7 +23,7 @@ exports.game_list = function (req, res, next) {
         return next(err);
       }
       //Successful, so render
-      const sortedGames = results.games.map((game) => {
+      results.games.map((game) => {
         const sortedArr = game.categories.sort((a, b) => {
           return a.name > b.name ? 1 : -1;
         });
@@ -41,8 +41,25 @@ exports.game_list = function (req, res, next) {
 };
 
 // Display detail page for a specific game.
-exports.game_detail = function (req, res) {
-  res.send("NOT IMPLEMENTED: Game detail: " + req.params.id);
+exports.game_detail = function (req, res, next) {
+  // console.log(req.params.id);
+  Game.findById(req.params.id)
+    .populate("categories")
+    .exec(function (err, game) {
+      if (err) return next(err);
+
+      // Successful, so sort populated data and render
+
+      // Sort categories alphabetically
+      game.categories.sort((a, b) => {
+        return a.name > b.name ? 1 : -1;
+      });
+
+      res.render("game", {
+        title: game.name + " :: gameshop",
+        game: game,
+      });
+    });
 };
 
 // Display Game create form on GET.
