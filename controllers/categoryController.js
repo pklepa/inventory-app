@@ -47,7 +47,9 @@ exports.category_game_list = function (req, res, next) {
 
 // Display Category create form on GET.
 exports.category_create_get = function (req, res) {
-  res.send("NOT IMPLEMENTED: Category create form GET");
+  res.render("category_form", {
+    title: "Create Category :: gameshop",
+  });
 };
 
 // Display Category create form on POST.

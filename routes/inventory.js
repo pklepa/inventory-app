@@ -33,9 +33,7 @@ router.get("/game/:id", gameController.game_detail);
 /// CATEGORY ROUTES ---------------------------------
 
 // GET create category view
-router.get("/category/create", function (req, res, next) {
-  res.send("Not implemented: GET create category view");
-});
+router.get("/category/create", categoryController.category_create_get);
 
 // POST create category view
 router.post("/category/create", function (req, res, next) {
