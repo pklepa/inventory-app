@@ -55,16 +55,9 @@ body {
   position: relative; }
 
 main {
-  padding: 30px 0 50px;
-  max-width: 800px;
+  width: 100%;
   display: flex;
-  flex-direction: column; }
-  @media screen and (max-width: 900px) {
-    main {
-      max-width: 500px; } }
-  @media screen and (max-width: 520px) {
-    main {
-      max-width: 100%; } }
+  justify-content: center; }
 
 body {
   background-color: #f6f7fd;
@@ -80,16 +73,9 @@ body {
   position: relative; }
 
 main {
-  padding: 30px 0 50px;
-  max-width: 800px;
+  width: 100%;
   display: flex;
-  flex-direction: column; }
-  @media screen and (max-width: 900px) {
-    main {
-      max-width: 500px; } }
-  @media screen and (max-width: 520px) {
-    main {
-      max-width: 100%; } }
+  justify-content: center; }
 
 nav {
   display: flex;
@@ -125,6 +111,20 @@ nav {
     box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 12px; }
     nav a:hover {
       letter-spacing: 10px; }
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0 50px;
+  max-width: 800px; }
+  @media screen and (max-width: 900px) {
+    .content-container {
+      max-width: 500px; } }
+  @media screen and (max-width: 520px) {
+    .content-container {
+      max-width: 100%; } }
+  .content-container.full {
+    max-width: 100%; }
 
 .category-container {
   position: relative;
@@ -219,45 +219,92 @@ nav {
       font-size: 16px;
       margin: 8px 0;
       text-align: center; }
-    .cards-container .card .tags {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      align-content: flex-start;
-      justify-content: center;
-      width: 100%;
-      min-height: 60px; }
-      .cards-container .card .tags .tag {
-        font-family: monospace;
-        font-size: 10px;
-        color: #222222;
-        background-color: #e3e3e3;
-        border-radius: 10px;
-        padding: 3px 6px;
-        margin-bottom: 3px;
-        margin-right: 3px;
-        transition: .2s; }
-        .cards-container .card .tags .tag:hover {
-          background-color: #5c94fc;
-          color: #f6f7fd; }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: center;
+  width: 100%;
+  min-height: 60px; }
+  .tags .tag {
+    font-family: monospace;
+    font-size: 10px;
+    color: #222222;
+    background-color: #e3e3e3;
+    border-radius: 10px;
+    padding: 3px 6px;
+    margin-bottom: 3px;
+    margin-right: 3px;
+    transition: .2s; }
+    .tags .tag:hover {
+      background-color: #5c94fc;
+      color: #f6f7fd; }
+
+.full-screen-container {
+  background-color: #f6f7fd;
+  border: 3px solid red;
+  height: calc( 100vh - 165px); }
 
 .game-container {
   display: flex;
-  align-items: center;
   justify-content: center;
   max-width: 100%;
   margin-top: 20px; }
   .game-container .image {
     flex-shrink: 0;
-    background-color: #e3e3e3;
-    background-size: cover;
+    background-color: #f6f7fd;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    border-radius: 10px; }
+    border-radius: 10px;
+    height: 70vh;
+    width: 400px;
+    margin: 0 20px; }
     .game-container .image img {
       visibility: hidden;
       width: auto;
       height: 70vh; }
+  .game-container .game-details {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px; }
+    .game-container .game-details h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 24px;
+      margin-bottom: 8px;
+      color: #5c94fc; }
+    .game-container .game-details .tags {
+      justify-content: flex-start;
+      min-height: 50px; }
+      .game-container .game-details .tags .tag {
+        font-size: 11px !important; }
+    .game-container .game-details p {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.5em; }
+      .game-container .game-details p strong {
+        font-weight: 600;
+        color: #75a2f5; }
+
+.amazon-btn {
+  align-self: center;
+  margin-top: 30px;
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  padding: 8px 24px;
+  border: 1px solid;
+  border-color: #a88734 #9c7e31 #846a29;
+  border-radius: 3px;
+  color: #222222;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  transition: filter .4s; }
+  .amazon-btn:hover {
+    filter: brightness(1.05); }
 
 .material-icons {
   font-family: 'Material Icons';

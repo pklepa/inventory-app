@@ -1,37 +1,37 @@
 extends layout
 
 block content
+  .content-container  
+    div.category-container
+      ul.category-scroller
+        li.category.selected
+          a(href="/inventory") All Games
+        each category in category_list
+          li.category
+            a(href=category.url) #{category.name}
 
-  div.category-container
-    ul.category-scroller
-      li.category.selected
-        a(href="/inventory") All Games
-      each category in category_list
-        li.category
-          a(href=category.url) #{category.name}
+    div.cards-container
+      each game in game_list
+        div.card
+          a(href=game.url)
+            div.image(style="background-image: url('"+ game.imgUrl + "')")
+    
+          a(href=game.url)
+            h1 #{game.name}
+          div.tags
+            each category in game.categories
+              a.tag(href=category.url) #{category.name}
 
-  div.cards-container
-    each game in game_list
-      div.card
-        a(href=game.url)
-          div.image(style="background-image: url('"+ game.imgUrl + "')")
-  
-        a(href=game.url)
-          h1 #{game.name}
-        div.tags
-          each category in game.categories
-            a.tag(href=category.url) #{category.name}
-
-  input#menu-toggle(type='checkbox' name="menu-toggle")
-  label(for='menu-toggle')
-    i#open.material-icons add
-    i#close.material-icons close
-  ul#menu
-    li
-      a.floating-btn-link(href='/inventory/game/create')
-        i.material-icons videogame_asset
-        | New Game
-    li
-      a.floating-btn-link(href='/inventory/category/create')
-        i.material-icons category
-        | New Category
+    input#menu-toggle(type='checkbox' name="menu-toggle")
+    label(for='menu-toggle')
+      i#open.material-icons add
+      i#close.material-icons close
+    ul#menu
+      li
+        a.floating-btn-link(href='/inventory/game/create')
+          i.material-icons videogame_asset
+          | New Game
+      li
+        a.floating-btn-link(href='/inventory/category/create')
+          i.material-icons category
+          | New Category

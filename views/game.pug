@@ -1,15 +1,19 @@
 extends layout
 
 block content
+  .content-container.full
+    .game-container
+      div.image(style="background-image: url('" + game.imgUrl + "')")
+        //- img(src=game.imgUrl, alt="Game")
 
-  .game-container
-    div.image(style="background-image: url('" + game.imgUrl + "')")
-      img(src=game.imgUrl, alt="Game")
+      .game-details
+        h1 #{game.name}
+        div.tags
+          each category in game.categories
+            a.tag(href=category.url) #{category.name}
 
-    .game-details
-      h1 #{game.name}
-      div.tags
-        each category in game.categories
-          a.tag(href=category.url) #{category.name}
-        
-      p #{game.description}
+        p 
+          strong Description: 
+          | #{game.description}
+
+        a.amazon-btn(href=`https://amazon.com/s?k=${encodeURI(game.name)}` target="_blank") Buy on Amazon
