@@ -7,11 +7,11 @@ block content
 
       .form-input
         label(for="name") Name
-        input(type="text", name="name", required=true, placeholder="Runescape, World of Warcraft, Super Mario Odyssey, etc...", minlength=1, maxlength=40 )
+        input(type="text", name="name", required=true, placeholder="Runescape, World of Warcraft, Super Mario Odyssey, etc...", minlength=1, maxlength=40, value=(undefined===game ? '' : game.name))
 
       .form-input
         label(for="description") Description
-        textarea(type="text", name="description", required=true, placeholder="Brief description of the game", minlength=10, maxlength=800 )
+        textarea(type="text", name="description", required=true, placeholder="Brief description of the game", minlength=10, maxlength=1000 ) #{(undefined===game ? '' : game.description)}
 
       h2 Categories
         | 
@@ -20,11 +20,12 @@ block content
         ul.category-scroller
           each category in category_list
             li
-              a.category(href=category.url) #{category.name}
+              span.category.category-checkbox-selector(id=`category_${category._id}`) #{category.name}
+              input.category-checkbox(type='checkbox', name='category', id=category._id, value=category._id, checked=false )
       
       .form-input
         label(for="imgUrl") Image URL
-        input(type="text", name="imgUrl", required=true, placeholder="https://upload.wikimedia.org/wikipedia/en/thumb/f/f7/RickRoll.png/250px-RickRoll.png")
+        input(type="text", name="imgUrl", required=true, value=(undefined===game ? '' : game.imgUrl) placeholder="https://upload.wikimedia.org/wikipedia/en/thumb/f/f7/RickRoll.png/250px-RickRoll.png")
 
       if errors  
         ul.error-box
@@ -33,3 +34,5 @@ block content
 
       button.form-btn-submit(type="submit") Submit
       a.form-btn-cancel(href="/inventory") Cancel
+
+  script(src="/javascripts/game_form.js")

@@ -190,12 +190,16 @@ nav {
   color: #5c94fc;
   font-family: monospace;
   text-transform: lowercase;
-  transition: .2s; }
-  .category.selected, .category:hover {
+  transition: .2s;
+  cursor: pointer;
+  user-select: none; }
+  .category.selected, .category:not(.category-checkbox-selector):hover {
     border-color: #5c94fc;
     background-color: #5c94fc;
     color: #f6f7fd;
     font-weight: bold; }
+  .category:active {
+    filter: brightness(0.9); }
 
 .cards-container {
   display: flex;
