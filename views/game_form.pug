@@ -2,8 +2,11 @@ extends layout
 
 block content
   .content-container
-    form(action="/inventory/game/create" method="POST")
-      h1 Create a new game
+    form(action="" method="POST")
+      if isUpdate
+        h1 Update game
+      else
+        h1 Create a new game
 
       .form-input
         label(for="name") Name
@@ -18,7 +21,10 @@ block content
         em (select at least 1, at most 5)
       div.category-container
         ul.category-scroller
+          - console.log(category_list)
+
           each category in category_list
+
             li
               span.category.category-checkbox-selector(id=`category_${category._id}` data-ischecked=category.checked) #{category.name}
               input.category-checkbox(type='checkbox', name='category', id=category._id, value=category._id, checked=category.checked )

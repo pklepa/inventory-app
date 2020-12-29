@@ -2,11 +2,9 @@ let markedCategories = [];
 
 document.querySelectorAll(".category-checkbox-selector").forEach((item) => {
   const hiddenCheckboxId = item.id.split("_")[1];
+  console.log(item.dataset);
   if (item.dataset.ischecked) {
     markedCategories.push(hiddenCheckboxId);
-    document.getElementById(
-      hiddenCheckboxId
-    ).checked = !document.getElementById(hiddenCheckboxId).checked;
     item.classList.add("selected");
   }
 
