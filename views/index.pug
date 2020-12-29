@@ -4,14 +4,14 @@ block content
   .content-container  
     div.category-container
       ul.category-scroller
-        li.category.selected
-          a(href="/inventory") All Games
+        li
+          a.category.selected(href="/inventory") All Games
           
         li.category-separator
 
         each category in category_list
-          li.category
-            a(href=category.url) #{category.name}
+          li
+            a.category(href=category.url) #{category.name}
 
     div.cards-container
       each game in game_list

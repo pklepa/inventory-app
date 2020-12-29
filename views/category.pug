@@ -9,24 +9,29 @@ block content
 
         li.category-separator
 
-        li.category
-          a(href="/inventory") All Games
+        li
+          a.category(href="/inventory") All Games
 
         each category in category_list
-          li.category
-            a(href=category.url) #{category.name}
+          li
+            a.category(href=category.url) #{category.name}
 
     div.cards-container
-      each game in game_list
-        div.card
-          a(href=game.url)
-            div.image(style="background-image: url('"+ game.imgUrl + "')")
-    
-          a(href=game.url)
-            h1 #{game.name}
-          div.tags
-            each category in game.categories
-              a.tag(href=category.url) #{category.name}
+      if game_list.length > 0
+        each game in game_list
+          div.card
+            a(href=game.url)
+              div.image(style="background-image: url('"+ game.imgUrl + "')")
+      
+            a(href=game.url)
+              h1 #{game.name}
+            div.tags
+              each category in game.categories
+                a.tag(href=category.url) #{category.name}
+      else
+        .empty-category
+          h2 Oops, looks like there's nothing in here
+          img(src="/images/dead_mario.png", alt="Defeated Mario")
 
     input#menu-toggle(type='checkbox' name="menu-toggle")
     label.floating-btn-label(for='menu-toggle')

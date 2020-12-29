@@ -15,12 +15,12 @@ block content
 
       h2 Categories
         | 
-        em (select at least 1)
+        em (select at least 1, at most 5)
       div.category-container
         ul.category-scroller
           each category in category_list
-            li.category
-              a(href=category.url) #{category.name}
+            li
+              a.category(href=category.url) #{category.name}
       
       .form-input
         label(for="imgUrl") Image URL

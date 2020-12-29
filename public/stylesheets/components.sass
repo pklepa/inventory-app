@@ -93,6 +93,10 @@ nav
   flex-shrink: 0
   padding: 0 40px 5px
 
+  li
+    display: inline-block
+
+
   &::-webkit-scrollbar 
     height: 6px
   
@@ -201,6 +205,19 @@ nav
       background-color: $primary
       color: $white
 
+.empty-category
+  display: flex
+  flex-direction: column
+  align-items: center
+
+  h2
+    color: $white
+    font-size: 16px
+    margin-bottom: 20px
+    padding: 4px 12px
+    background-color: $secondary
+    border-radius: 5px
+
 .full-screen-container
   background-color: $white
   border: 3px solid red
@@ -261,6 +278,9 @@ nav
         color: $secondary
 
 .amazon-btn
+  display: flex
+  align-items: center
+
   align-self: center
   margin-top: 30px
   background: linear-gradient(to bottom,#f7dfa5,#f0c14b)
@@ -277,6 +297,15 @@ nav
 
   &:hover
     filter: brightness(1.05)
+
+  span
+    width: 20px
+    height: 20px
+    background-size: contain
+    background-color: $white
+    background-image: url('../images/amazon_icon2.png')
+    border-radius: 5px
+    margin-right: 8px
 
 form
   display: flex
