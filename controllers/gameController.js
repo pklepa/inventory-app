@@ -105,7 +105,7 @@ exports.game_create_post = [
     .isLength({ min: 1 })
     .withMessage("Select at least one category."),
   body("category.*").escape(),
-  body("imgUrl").isURL().withMessage("Image URL must be a valid URL.").escape(),
+  body("imgUrl").isURL().withMessage("Image URL must be a valid URL."),
 
   // Process request after validation and sanitization.
   (req, res, next) => {
