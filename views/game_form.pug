@@ -20,8 +20,8 @@ block content
         ul.category-scroller
           each category in category_list
             li
-              span.category.category-checkbox-selector(id=`category_${category._id}`) #{category.name}
-              input.category-checkbox(type='checkbox', name='category', id=category._id, value=category._id, checked=false )
+              span.category.category-checkbox-selector(id=`category_${category._id}` data-ischecked=category.checked) #{category.name}
+              input.category-checkbox(type='checkbox', name='category', id=category._id, value=category._id, checked=category.checked )
       
       .form-input
         label(for="imgUrl") Image URL

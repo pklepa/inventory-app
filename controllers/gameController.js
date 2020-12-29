@@ -129,6 +129,13 @@ exports.game_create_post = [
         .exec(function (err, category_list) {
           if (err) return next(err);
 
+          // Mark our selected categories as checked.
+          for (let i = 0; i < category_list.length; i++) {
+            if (game.categories.indexOf(category_list[i]._id) > -1) {
+              category_list[i].checked = "true";
+            }
+          }
+
           // Successful, so render
           res.render("game_form", {
             title: "New Game :: gameshop",

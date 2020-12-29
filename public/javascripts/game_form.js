@@ -1,9 +1,16 @@
 let markedCategories = [];
 
 document.querySelectorAll(".category-checkbox-selector").forEach((item) => {
-  item.addEventListener("click", (e) => {
-    const hiddenCheckboxId = e.target.id.split("_")[1];
+  const hiddenCheckboxId = item.id.split("_")[1];
+  if (item.dataset.ischecked) {
+    markedCategories.push(hiddenCheckboxId);
+    document.getElementById(
+      hiddenCheckboxId
+    ).checked = !document.getElementById(hiddenCheckboxId).checked;
+    item.classList.add("selected");
+  }
 
+  item.addEventListener("click", (e) => {
     let index = markedCategories.indexOf(hiddenCheckboxId);
     if (index > -1) {
       markedCategories.splice(index, 1);
