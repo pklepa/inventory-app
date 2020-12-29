@@ -253,34 +253,54 @@ nav
       width: auto
       height: 70vh
 
-  .game-details
+  .game-details-wrapper
     display: flex
     flex-direction: column
+    justify-content: space-between
+
     max-width: 400px
+    height: 100%
 
-    h1
-      font-family: 'Montserrat', sans-serif
-      font-weight: 600
-      font-size: 24px
-      margin-bottom: 8px
-      color: $primary
+    .game-details
+      display: flex
+      flex-direction: column
 
-    .tags
-      justify-content: flex-start
-      min-height: 50px
-
-      .tag
-        font-size: 11px !important
-
-    p
-      font-family: 'Montserrat', sans-serif
-      font-weight: 400
-      font-size: 14px
-      line-height: 1.5em
-      
-      strong
+      h1
+        font-family: 'Montserrat', sans-serif
         font-weight: 600
+        font-size: 24px
+        margin-bottom: 8px
+        color: $primary
+
+      .tags
+        justify-content: flex-start
+        min-height: 50px
+
+        .tag
+          font-size: 11px !important
+
+      p
+        font-family: 'Montserrat', sans-serif
+        font-weight: 400
+        font-size: 14px
+        line-height: 1.5em
+        
+        strong
+          font-weight: 600
+          color: $secondary
+
+    .game-options
+      display: flex
+      border-top: 1px solid $lighterer
+      align-items: center
+      justify-content: center
+
+      .option
         color: $secondary
+        margin: 8px
+
+        &:hover
+          text-decoration: underline
 
 .amazon-btn
   display: flex

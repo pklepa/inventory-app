@@ -293,29 +293,44 @@ nav {
       visibility: hidden;
       width: auto;
       height: 70vh; }
-  .game-container .game-details {
+  .game-container .game-details-wrapper {
     display: flex;
     flex-direction: column;
-    max-width: 400px; }
-    .game-container .game-details h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 24px;
-      margin-bottom: 8px;
-      color: #5c94fc; }
-    .game-container .game-details .tags {
-      justify-content: flex-start;
-      min-height: 50px; }
-      .game-container .game-details .tags .tag {
-        font-size: 11px !important; }
-    .game-container .game-details p {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 1.5em; }
-      .game-container .game-details p strong {
+    justify-content: space-between;
+    max-width: 400px;
+    height: 100%; }
+    .game-container .game-details-wrapper .game-details {
+      display: flex;
+      flex-direction: column; }
+      .game-container .game-details-wrapper .game-details h1 {
+        font-family: 'Montserrat', sans-serif;
         font-weight: 600;
-        color: #75a2f5; }
+        font-size: 24px;
+        margin-bottom: 8px;
+        color: #5c94fc; }
+      .game-container .game-details-wrapper .game-details .tags {
+        justify-content: flex-start;
+        min-height: 50px; }
+        .game-container .game-details-wrapper .game-details .tags .tag {
+          font-size: 11px !important; }
+      .game-container .game-details-wrapper .game-details p {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.5em; }
+        .game-container .game-details-wrapper .game-details p strong {
+          font-weight: 600;
+          color: #75a2f5; }
+    .game-container .game-details-wrapper .game-options {
+      display: flex;
+      border-top: 1px solid #d3d3d3;
+      align-items: center;
+      justify-content: center; }
+      .game-container .game-details-wrapper .game-options .option {
+        color: #75a2f5;
+        margin: 8px; }
+        .game-container .game-details-wrapper .game-options .option:hover {
+          text-decoration: underline; }
 
 .amazon-btn {
   display: flex;

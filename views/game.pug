@@ -4,19 +4,24 @@ block content
   .content-container.full
     .game-container
       div.image(style="background-image: url('" + game.imgUrl + "')")
-        //- img(src=game.imgUrl, alt="Game")
 
-      .game-details
-        h1 #{game.name}
-        div.tags
-          each category in game.categories
-            a.tag(href=category.url) #{category.name}
+      .game-details-wrapper
+        .game-details
+          h1 #{game.name}
+          div.tags
+            each category in game.categories
+              a.tag(href=category.url) #{category.name}
 
-        p 
-          strong Description: 
-          | #{game.description}
+          p 
+            strong Description: 
+            | #{game.description}
 
-        a.amazon-btn(href=`https://amazon.com/s?k=${encodeURI(game.name)}` target="_blank")
-          | 
-          span  
-          | Buy on Amazon
+          a.amazon-btn(href=`https://amazon.com/s?k=${encodeURI(game.name)}` target="_blank")
+            | 
+            span  
+            | Buy on Amazon
+        
+        .game-options
+          a.option(href=`/inventory/game/${game._id}/update`) edit
+
+          a.option(href=`/inventory/game/${game._id}/delete`) delete
