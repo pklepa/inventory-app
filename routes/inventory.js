@@ -15,9 +15,6 @@ router.get("/game/create", gameController.game_create_get);
 // POST create game view
 router.post("/game/create", gameController.game_create_post);
 
-// GET delete game view
-router.get("/game/:id/delete", gameController.game_delete_get);
-
 // POST delete game view
 router.post("/game/:id/delete", gameController.game_delete_post);
 

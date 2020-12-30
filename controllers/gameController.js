@@ -158,14 +158,14 @@ exports.game_create_post = [
   },
 ];
 
-// Display Game delete form on GET.
-exports.game_delete_get = function (req, res) {
-  res.send("NOT IMPLEMENTED: Game delete form GET");
-};
+// Display Game delete form on POST.
+exports.game_delete_post = function (req, res, next) {
+  Game.findByIdAndDelete(req.params.id, function deleteGame(err) {
+    if (err) return next(err);
 
-// Display Game delete form on GET.
-exports.game_delete_post = function (req, res) {
-  res.send("NOT IMPLEMENTED: Game delete form POST");
+    // Success - redirect to initial page
+    res.redirect("/inventory");
+  });
 };
 
 // Display Game update form on GET.
