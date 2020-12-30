@@ -25,7 +25,11 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 app.use(logger("dev"));
 app.use(express.json());
