@@ -114,21 +114,11 @@ exports.category_create_post = [
 ];
 
 // Display Category delete form on GET.
-exports.category_delete_get = function (req, res) {
-  res.send("NOT IMPLEMENTED: Category delete form GET");
-};
+exports.category_delete_post = function (req, res, next) {
+  Category.findByIdAndDelete(req.params.id, function deleteCategory(err) {
+    if (err) return next(err);
 
-// Display Category delete form on GET.
-exports.category_delete_post = function (req, res) {
-  res.send("NOT IMPLEMENTED: Category delete form POST");
-};
-
-// Display Category update form on GET.
-exports.category_update_get = function (req, res) {
-  res.send("NOT IMPLEMENTED: Category update form GET");
-};
-
-// Display Category update form on GET.
-exports.category_update_post = function (req, res) {
-  res.send("NOT IMPLEMENTED: Category update form POST");
+    // Success - redirect to initial page
+    res.redirect("/inventory");
+  });
 };

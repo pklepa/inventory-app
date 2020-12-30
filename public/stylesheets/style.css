@@ -279,11 +279,6 @@ nav {
     margin-top: 15px;
     outline: none; }
 
-.full-screen-container {
-  background-color: #f6f7fd;
-  border: 3px solid red;
-  height: calc( 100vh - 165px); }
-
 .game-container {
   display: flex;
   justify-content: center;

@@ -35,25 +35,8 @@ router.get("/category/create", categoryController.category_create_get);
 // POST create category view
 router.post("/category/create", categoryController.category_create_post);
 
-// GET delete category view
-router.get("/category/:id/delete", function (req, res, next) {
-  res.send("Not implemented: GET delete category view");
-});
-
 // POST delete category view
-router.post("/category/:id/delete", function (req, res, next) {
-  res.send("Not implemented: POST delete category view");
-});
-
-// GET update category view
-router.get("/category/:id/update", function (req, res, next) {
-  res.send("Not implemented: GET update category view");
-});
-
-// POST update category view
-router.post("/category/:id/update", function (req, res, next) {
-  res.send("Not implemented: POST update category view");
-});
+router.post("/category/:id/delete", categoryController.category_delete_post);
 
 // GET category view
 router.get("/category/:id", categoryController.category_game_list);
