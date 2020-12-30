@@ -30,8 +30,10 @@ block content
                 a.tag(href=category.url) #{category.name}
       else
         .empty-category
-          h2 Oops, looks like there's nothing in here
+          h1 Oops, looks like there's nothing in here
           img(src="/images/dead_mario.png", alt="Defeated Mario")
+
+          button(id="show-delete-category-modal-btn") Delete category
 
     input#menu-toggle(type='checkbox' name="menu-toggle")
     label.floating-btn-label(for='menu-toggle')
@@ -46,3 +48,19 @@ block content
         a.floating-btn-link(href='/inventory/category/create')
           i.material-icons category
           | New Category
+
+
+    .modal.hide(id="delete-category-modal")
+      form.delete-form(action=`/inventory/category/${selected_category._id}/delete`, method="POST")
+        h1 Delete category
+        p 
+          | This action will remove the category from the database and cannot be undone.
+          br
+          br
+          | Are you sure you want to delete #[em '#{selected_category.name}']?
+
+        .buttons-container
+          button.form-btn-submit.cancel(type="button" id="delete-category-cancel-btn") Cancel
+          button.form-btn-submit(type="submit") Yes
+
+  script(src="/javascripts/category.js")
