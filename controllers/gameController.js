@@ -44,7 +44,6 @@ exports.game_list = function (req, res, next) {
 
 // Display detail page for a specific game.
 exports.game_detail = function (req, res, next) {
-  // console.log(req.params.id);
   Game.findById(req.params.id)
     .populate("categories")
     .exec(function (err, game) {
@@ -252,8 +251,6 @@ exports.game_update_post = [
 
   // Process request after validation and sanitization.
   (req, res, next) => {
-    console.log(req.body);
-
     // Extract the validation errors from a request.
     const errors = validationResult(req);
 
