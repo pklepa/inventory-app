@@ -53,6 +53,7 @@ nav
     max-width: 100%
 
   &.full
+    position: relative
     max-width: 100%
 
 
@@ -298,6 +299,11 @@ nav
       .option
         color: $secondary
         margin: 8px
+        background: none
+        border: none
+        cursor: pointer
+        font: 14px "Lucida Grande", Helvetica, Arial, sans-serif   
+        outline: none     
 
         &:hover
           text-decoration: underline
@@ -442,3 +448,52 @@ form
 
   .category-container
     margin-bottom: 20px
+
+.modal
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+  display: flex
+  align-items: center
+  justify-content: center
+
+  opacity: 1
+
+  transition: .5s
+
+  &.hide
+    transform: translateX(-100vw)
+    opacity: 0
+
+.delete-form
+  display: flex
+  flex-direction: column
+  max-width: 400px
+  box-shadow: $darker 0px 4px 70px
+
+  p
+    color: #666
+    font-family: 'Montserrat', sans-serif
+    font-weight: 400
+    font-size: 15px
+    line-height: 1.5em
+    margin-top: 10px
+
+    em
+      color: $secondary
+
+  .buttons-container
+    display: flex
+    justify-content: space-between
+
+    margin-top: 10px
+    width: 100%
+
+    .cancel
+      background-color: $red
+
+
+

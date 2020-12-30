@@ -124,6 +124,7 @@ nav {
     .content-container {
       max-width: 100%; } }
   .content-container.full {
+    position: relative;
     max-width: 100%; }
 
 .category-container {
@@ -328,7 +329,12 @@ nav {
       justify-content: center; }
       .game-container .game-details-wrapper .game-options .option {
         color: #75a2f5;
-        margin: 8px; }
+        margin: 8px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+        outline: none; }
         .game-container .game-details-wrapper .game-options .option:hover {
           text-decoration: underline; }
 
@@ -444,6 +450,43 @@ form {
       margin-left: 8px; }
   form .category-container {
     margin-bottom: 20px; }
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: .5s; }
+  .modal.hide {
+    transform: translateX(-100vw);
+    opacity: 0; }
+
+.delete-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  box-shadow: #000000 0px 4px 70px; }
+  .delete-form p {
+    color: #666;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.5em;
+    margin-top: 10px; }
+    .delete-form p em {
+      color: #75a2f5; }
+  .delete-form .buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 100%; }
+    .delete-form .buttons-container .cancel {
+      background-color: #ff4646; }
 
 .material-icons {
   font-family: 'Material Icons';

@@ -24,4 +24,19 @@ block content
         .game-options
           a.option(href=`/inventory/game/${game._id}/update`) edit
 
-          a.option(href=`/inventory/game/${game._id}/delete`) delete
+          button.option(id="show-delete-modal-btn") delete
+  
+    .modal.hide(id="delete-modal")
+      form.delete-form(action=`/inventory/game/${game._id}/delete`, method="POST")
+        h1 Delete game
+        p 
+          | This action will remove the game from the database and cannot be undone.
+          br
+          br
+          | Are you sure you want to delete #[em '#{game.name}']?
+
+        .buttons-container
+          button.form-btn-submit.cancel(type="button" id="delete-cancel-btn") Cancel
+          button.form-btn-submit(type="submit") Yes
+
+  script(src="/javascripts/game.js")
