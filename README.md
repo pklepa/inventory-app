@@ -8,7 +8,11 @@
 
 #### main page
 
+![image](https://user-images.githubusercontent.com/22618438/103463379-d48aea80-4d23-11eb-8b48-96064477351a.png)
+
 #### single game
+
+![image](https://user-images.githubusercontent.com/22618438/103463401-fbe1b780-4d23-11eb-9c75-0a0eb23b2424.png)
 
 ## Objectives & Outcomes
 
