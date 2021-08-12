@@ -2,7 +2,7 @@
 
 [Odin] Game inventory app
 
-> See it live on [Heroku](https://nameless-woodland-81012.herokuapp.com/)
+ ~~See it live on [Heroku](https://nameless-woodland-81012.herokuapp.com/)~~
 
 ### Screenshots
 
